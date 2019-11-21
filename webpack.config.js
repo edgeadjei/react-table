@@ -1,4 +1,4 @@
-const {join, resolve} = require("path");
+const {join} = require("path");
 
 module.exports = {
   mode: "development",
@@ -25,7 +25,8 @@ module.exports = {
     ]
   },
   externals: {
-    react: "react",
-    "react-dom": "react-dom"
+    "react": "react",
+    "react-dom": "react-dom",
+    "styled-components": "styled-components"
   }
 };
