@@ -1,0 +1,61 @@
+{
+  "name": "react-table-component",
+  "version": "1.0.0",
+  "description": "A flexible and performant table component for react",
+  "main": "./dist/table.js",
+  "scripts": {
+    "build": "webpack --progress",
+    "watch": "webpack --progress --colors --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -c .storybook -o docs",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Edgesyntax/react-table-component"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "react-table-component",
+    "table-component",
+    "react-table",
+    "table",
+    "data-table"
+  ],
+  "author": "Edgesyntax",
+  "license": "MIT",
+  "dependencies": {
+    "polished": "^3.4.2",
+    "prop-types": "^15.7.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@storybook/react": "^5.2.6",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-json-tree": "^0.11.2",
+    "storybook-readme": "^5.0.8",
+    "styled-components": "^4.4.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "peerDependencies": {
+    "react": "* || ^15.4.1"
+  }
+}

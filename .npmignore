@@ -1,0 +1,15 @@
+*.swp
+*~
+*.iml
+.*.haste_cache.*
+.DS_Store
+.idea
+.babelrc
+.eslintrc
+docs
+npm-debug.log
+lib
+.storybook
+stories
+storybook-static
+webpack.config.js
