@@ -1,5 +1,5 @@
 {
-  "name": "react-table-component",
+  "name": "@edgesyntax/react-table",
   "version": "1.0.0",
   "description": "A flexible and performant table component for react",
   "main": "./dist/table.js",
@@ -12,12 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Edgesyntax/react-table-component"
+    "url": "https://github.com/Edgesyntax/@edgesyntax/react-table"
   },
   "keywords": [
     "react",
     "react-component",
     "react-table-component",
+    "@edgesyntax/react-table",
     "table-component",
     "react-table",
     "table",
@@ -56,6 +57,6 @@
     "webpack-dev-server": "^3.9.0"
   },
   "peerDependencies": {
-    "react": "* || ^15.4.1"
+    "react": "^16.8"
   }
 }

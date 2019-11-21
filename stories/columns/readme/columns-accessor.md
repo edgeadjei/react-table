@@ -4,7 +4,7 @@ The returned value will then be used for rendering, sorting and filtering.
 ```js
 import React from "react";
 
-import Table from "react-table-component";
+import Table from "@edgesyntax/react-table";
 const data = {[
   {
     "_id": "5844822be1ea02fe2b261ab1",

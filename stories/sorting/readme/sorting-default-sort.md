@@ -1,7 +1,7 @@
 ```js
 import React from "react";
 
-import Table from "react-table-component";
+import Table from "@edgesyntax/react-table";
 import data from "./table.mock.json";
 
 const Default = () => {

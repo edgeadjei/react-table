@@ -1,4 +1,4 @@
-All table styles are scoped using the `.react-table-component` prefix making it extremely easy to override the default styles.
+All table styles are scoped using the `.@edgesyntax/react-table` prefix making it extremely easy to override the default styles.
 
 You can alternatively override the basic styles using the theme prop.
 
@@ -8,7 +8,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Application Modules
-import Table from "table.component.jsx";
+import Table from "@edgesyntax/react-table";
 import data from "../../shared/table.mock.json";
 
 const Style = styled.span`

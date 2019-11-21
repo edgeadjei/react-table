@@ -1,7 +1,7 @@
 ```js
 import React from "react";
 
-import Table, {Tr, Td, tableStylesheet} from "../dist/table.js";
+import Table from "@edgesyntax/react-table";
 import data from "./table.mock.json";
 
 class Custom extends React.Component{

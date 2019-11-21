@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 
 // Application Modules
-import Table from "table.component.jsx";
+import Table from "@edgesyntax/react-table";
 
 const Main = () => {
   const [state, setState] = useState({date: [], loading: false})

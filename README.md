@@ -1,11 +1,11 @@
-# react-table-component
+# @edgesyntax/react-table
 A flexible and performant table component for react
 
-[![NPM](https://nodei.co/npm/react-table-component.png)](https://npmjs.org/package/react-table-component)
+[![NPM](https://nodei.co/npm/@edgesyntax/react-table.png)](https://npmjs.org/package/@edgesyntax/react-table)
 
 ## Live Playground
 
-For examples of the react-table-component in action, go to [storybook](https://edgesyntax.github.io/react-table-component/)
+For examples of the @edgesyntax/react-table in action, go to [storybook](https://edgesyntax.github.io/@edgesyntax/react-table/)
 
 OR
 
@@ -20,11 +20,11 @@ To run that demo on your own computer:
 # Install
 NPM 
 ```
-npm install react-table-component --save
+npm install @edgesyntax/react-table --save
 ```
 Yarn
 ```
-yarn add react-table-component
+yarn add @edgesyntax/react-table
 ```
 
 # Usage
@@ -32,7 +32,7 @@ ____
 ```js
 import React from "react";
 import ReactDOM from 'react-dom';
-import Table from "react-table-component";
+import Table from "@edgesyntax/react-table";
 
 ReactDOM.render(
   <Table

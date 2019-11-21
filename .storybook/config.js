@@ -4,8 +4,8 @@ import { addReadme } from 'storybook-readme';
 addParameters({
   options: {
     theme: {
-      brandTitle: 'table component',
-      brandUrl: 'https://github.com/Edgesyntax/table-component',
+      brandTitle: '@edgesyntax/react-table',
+      brandUrl: 'https://github.com/Edgesyntax/react-table',
     },
     showPanel: true,
     panelPosition: "right"

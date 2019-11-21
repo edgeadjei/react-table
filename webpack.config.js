@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: join(__dirname,"dist"),
     filename: "[name].js",
-    library: "react-table-component",
+    library: "@edgesyntax/react-table",
     libraryTarget: "umd"
   },
   module: {
