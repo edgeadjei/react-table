@@ -5,7 +5,7 @@ A flexible and performant table component for react
 
 ## Live Playground
 
-For examples of the @edgesyntax/react-table in action, go to [storybook](https://edgesyntax.github.io/@edgesyntax/react-table/)
+For examples of the @edgesyntax/react-table in action, go to [storybook](https://edgesyntax.github.io/react-table)
 
 OR
 
