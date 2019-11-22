@@ -24,23 +24,20 @@ const Table = (props) => {
     pageSizeOptions: [25, 50, 100]
   });
   const { sortable, sort, filterable, filter, pageSize, pageSizeOptions, page } = state;
+
   // Use state for internal table state
   const [table, setTable] = useState({columns: props.columns});
+
   // Use effect to handle state change events
   useEffect(() => {
     if (props.onStateChange) props.onStateChange({...state, columns: table.columns})
   }, [sort, filter, page, pageSize]);
+
   // Use effect to generate table
   useLayoutEffect(() => {
     generateTable();
   }, [data, sort, filter, page, pageSize]);
-  // Use effect to handle resize event
-  useEffect(() => {
-    document.addEventListener('resizing', resizeTable);
-    return () => {
-      document.removeEventListener('resizing', resizeTable);
-    }
-  }, [table]);
+
   // Generate table
   const generateTable = () => {
     if(!data || !data.length) return null;
@@ -49,9 +46,9 @@ const Table = (props) => {
     const { rows, processedTable } = new Util(data, columns, manual).filter(filter).sort(sort).limit(pageSize, page);
     setTable({...table, rows, processedTable, columns});
   }
+
   // Resize table event handler
-  const resizeTable = (event) => {
-    var { column, width } = event.detail;
+  const resizeTable = ({column, width}) => {
     const columns = table.columns.map((currentColumn) => {
       if(currentColumn.id === column) {
         currentColumn.width = width;
@@ -62,12 +59,14 @@ const Table = (props) => {
     const update = {...table, columns}
     setTable(update);
   }
+
   // On sort action handler
   const onSortAction = ({target}) => {
     var update = {...state, page: 1, sort: JSON.parse(target.value)};
     if (props.onSortChange) props.onSortChange(update.sort)
     setState(update);
   }
+
   // On filter action handler
   const onFilterAction = ({target}) => {
     const value = (target.value ? target.value : undefined);
@@ -85,12 +84,14 @@ const Table = (props) => {
 
     setState(update);
   }
+
   // On page size action handler
   const onPageSizeAction = ({target}) => {
     var update = {...state, page: 1, pageSize: parseInt(target.value)};
     if (props.onPageSizeChange) props.onPageSizeChange(update.pageSize)
     setState(update);
   }
+
   // On paginate action handler
   const onPaginateAction = ({target}) => {
     if (state.page === parseInt(target.value)) return;
@@ -98,12 +99,15 @@ const Table = (props) => {
     if (props.onPageChange) props.onPageChange(update.page)
     setState(update);
   }
+
   const selectAllRows = () => {
     if (props.onSelectAllRows) props.onSelectAllRows(table.rows)
   }
+
   const selectRow = (row) => {
     if(props.onRowSelection) props.onRowSelection(row)
   }
+
   const renderNoData = () => {
     if (!table.rows && !loading || table.rows && !table.rows.length && !loading) return (
       <Styles.NoData className="tc-no-data">
@@ -111,6 +115,7 @@ const Table = (props) => {
       </Styles.NoData>
     )
   }
+
   const renderLoader = () => {
     if (loading) return (
       <Styles.Overlay className="tc-overlay">
@@ -118,6 +123,7 @@ const Table = (props) => {
       </Styles.Overlay>
     )
   }
+
   const renderTr = () => {
     if (!table.rows || !table.rows.length) return;
     return table.rows.map((row, index) => {
@@ -135,6 +141,7 @@ const Table = (props) => {
         activeRow={isActiveRow}/>
     })
   }
+
   return(
     <ThemeProvider theme={{...Theme, ...theme}}>
       <Styles.Container className="react-table">
@@ -150,6 +157,7 @@ const Table = (props) => {
               sort={sort}
               sortable={sortable}
               sortTable={onSortAction}
+              resizeTable={resizeTable}
               height={height}
               selectAllRows={selectAllRows}/>
           : null }

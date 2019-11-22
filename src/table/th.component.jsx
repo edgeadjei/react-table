@@ -8,7 +8,7 @@ import DownArrow from "../icons/mdArrowDropdown.component.jsx";
 import UpArrow from "../icons/mdArrowDropup.component.jsx";
 import * as Styles from "./table.stylesheet.js";
 
-const Th = ({ id, label, name, sort, sortTable, sortable, children, minWidth, width = 100, maxWidth, isLastColumn, index }) => {
+const Th = ({ id, label, name, sort, sortTable, sortable, children, minWidth, width = 100, maxWidth, resizeTable, isLastColumn, index }) => {
   
   // Sort table using index
   var transformTh = (label ? label.toString() : id ? id.toString() : "");
@@ -60,7 +60,7 @@ const Th = ({ id, label, name, sort, sortTable, sortable, children, minWidth, wi
 
         {children}
       </React.Fragment>
-      {!isLastColumn ? <Resize id={id} /> : null }
+      {resizeTable && !isLastColumn ? <Resize id={id} resizeTable={resizeTable}/> : null }
     </Styles.Th>
   );
 }

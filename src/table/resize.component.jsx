@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import * as Styles from "./table.stylesheet.js";
 
-const Resize = ({ id }) => {
+const Resize = ({ id, resizeTable }) => {
   const [resize, setResize] = useState({column: id, resizing: false});
   useEffect(() => {
     if(resize.resizing) {
@@ -26,8 +26,7 @@ const Resize = ({ id }) => {
     const {resizing, initialWidth, initialPos} = resize;
     if(resizing){
       const width = Math.max(initialWidth + event.pageX - initialPos, 13);
-      const resizingEvent = new CustomEvent("resizing", { bubbles: true, detail: {...resize, width}});
-      event.target.dispatchEvent(resizingEvent)
+      resizeTable({...resize, width})
     }
   }
   const stopResize = () => setResize({...resize, resizing: false});

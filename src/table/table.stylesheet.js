@@ -24,9 +24,6 @@ const Table = styled.main`
     width: auto;
     padding: 0;
   }
-  select {
-    width: auto;
-  }
 `;
 const Thead = styled.main`
   user-select: none;
@@ -91,9 +88,6 @@ const Tr = styled.main`
   :not(.active):hover {
     background-color: ${props => props.theme.secondaryColor}
   }
-  :last-child {
-    border-bottom: 0;
-  }
   ${props => props.activeRow && css`
     background: ${props => props.theme.secondaryColor}
   `}
@@ -125,6 +119,9 @@ const Tfoot = styled.main`
   padding: 2px 6px;
   border-top: 1px solid ${props => props.theme.borderColor};
   background-color: ${props => props.theme.secondaryColor};
+  select {
+    width: auto;
+  }
 `;
 const Pagination = styled.button`
   display: inline-block;

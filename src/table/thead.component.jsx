@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import Th from "./th.component.jsx";
 import * as Styles from "./table.stylesheet.js";
 
-const Thead = ({ columns, showIndex, selectable, sort, sortable, filter, filterable, filterTable, sortTable, height, selectAllRows}) => {
+const Thead = ({ columns, showIndex, selectable, sort, sortable, filter, filterable, filterTable, sortTable, resizeTable, height, selectAllRows}) => {
   if (!columns || !columns.length) return null;
   
   const renderThead = () => {
@@ -20,6 +20,7 @@ const Thead = ({ columns, showIndex, selectable, sort, sortable, filter, filtera
         sort={sort}
         sortable={shouldSort}
         sortTable={sortTable}
+        resizeTable={resizeTable}
         isLastColumn={columns && index + 1 === columns.length}/>
     });
   }
