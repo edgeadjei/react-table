@@ -31,6 +31,7 @@ const Thead = styled.main`
   background-color: ${props => props.theme.secondaryColor};
   ${props => props["data-height"] && css`
     overflow-y: scroll;
+    overflow-x: hidden;
   `}
   button {
     display: inline-block;
@@ -51,15 +52,18 @@ const Th = styled.div`
   min-width: 28px;
   position: relative;
   padding: 2px 6px;
+  text-transform: capitalize;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   :last-child {
     border-right: 0;
   }
   button {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-    text-transform: capitalize;
+    white-space: inherit;
+    text-overflow: inherit;
+    text-transform: inherit;
   }
   ${props => props.index && css`
     text-align: center;
@@ -77,8 +81,9 @@ const Resizer = styled.div`
 `;
 const Body = styled.main`
   position: relative;
-  ${props => props.height && css`
+  ${props => props["data-height"] && css`
     overflow-y: scroll;
+    overflow-x: hidden;
   `}
 `;
 const Tr = styled.main`

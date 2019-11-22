@@ -17,7 +17,7 @@ const Table = (props) => {
   const [state, setState] = useState({
     sort: props.defaultSort,
     sortable: props.sortable || true,
-    filter: props.defaultFilter,
+    filter: props.defaultFilter || {},
     filterable: props.filterable || false,
     page: props.defaultPage || 1,
     pageSize: props.defaultPageSize || 25,
@@ -69,17 +69,13 @@ const Table = (props) => {
 
   // On filter action handler
   const onFilterAction = ({target}) => {
-    const value = (target.value ? target.value : undefined);
+    const {name, value} = target;
     // Set filter value
     var filter;
-    if (state.filter && value) filter = {...state.filter, [target.name]: value }
-    else if (state.filter && !value) { 
-      delete state.filter[target.name]
-      filter = {...state.filter}
-    }
-    else filter = { [target.name]: value };
+    if (String(value)) filter = { [name]: value }
+    else delete state.filter[name];
 
-    const update = { ...state, page: 1, filter};
+    const update = { ...state, page: 1, filter: {...state.filter, ...filter}};
     if (props.onFilterChange) props.onFilterChange(update.filter)
 
     setState(update);
@@ -161,7 +157,7 @@ const Table = (props) => {
               height={height}
               selectAllRows={selectAllRows}/>
           : null }
-          <Styles.Body className="tc-tbody" height={height}>
+          <Styles.Body className="tc-tbody" data-height={height}>
             {renderNoData()}
             {renderTr()}
           </Styles.Body>

@@ -14,8 +14,9 @@ class Util {
       var match = true
       this.columns.map((column) => {
         const customFilter = column.filterMethod;
-        const customFilterValue = filter[column.id];
-        if (customFilter && customFilterValue) {
+        var columnFilterValue = filter[column.id];
+        if(typeof columnFilterValue === "boolean") columnFilterValue = String(columnFilterValue)
+        if (customFilter && columnFilterValue) {
           var tableValue = row[column.id];
 
           // Apply accessor
@@ -30,11 +31,11 @@ class Util {
                 break;
             }
           }
-          const filtered = customFilter(tableValue, customFilterValue);
+          const filtered = customFilter(tableValue, columnFilterValue);
           if (!filtered) match = false;
         } else {
           var tableValue = row[column.id];
-          var fitlerValue = (filter[column.id] ? String(filter[column.id]).toLowerCase().trim() : "");
+          var fitlerValue = (columnFilterValue ? String(columnFilterValue).toLowerCase().trim() : "");
 
           // Apply accessor
           if (column.accessor) {
@@ -45,8 +46,8 @@ class Util {
           else tableValue = String(tableValue).toLowerCase().trim();
 
           // Convert boolean values
-          if (typeof row[column.id] === "boolean" && row[column.id]) tableValue = "true";
-          if (typeof row[column.id] === "boolean" && !row[column.id]) tableValue = "false";
+          if (typeof tableValue === "boolean" && tableValue) tableValue = "true";
+          if (typeof tableValue === "boolean" && !tableValue) tableValue = "false";
 
           if (fitlerValue && !tableValue.includes(fitlerValue)) match = false;
         }
