@@ -38,6 +38,7 @@ const Tfoot = ({ count, pageSize, pageSizeOptions, setPageSize, page, paginateTa
       if (page - offset < currentPage && currentPage < page + offset) paginationArray.push(currentPage);
     })
     return paginationArray.map((currentPage) => {
+      const activePage = (page === currentPage);
       return (
         <Styles.Pagination
           key={currentPage}
@@ -45,8 +46,8 @@ const Tfoot = ({ count, pageSize, pageSizeOptions, setPageSize, page, paginateTa
           type="button"
           value={currentPage}
           onClick={paginateTable}
-          className="page"
-          active={page === currentPage}>
+          className={(activePage ? "page active" : "page")}
+          active={activePage}>
           {currentPage}
         </Styles.Pagination>
       );

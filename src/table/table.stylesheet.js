@@ -1,6 +1,5 @@
 // React Modules
 import styled, {css} from "styled-components";
-import {rgba} from "polished";
 
 const Container = styled.main`
   position: relative;
@@ -96,7 +95,7 @@ const Tr = styled.main`
     border-bottom: 0;
   }
   ${props => props.activeRow && css`
-    background: ${rgba(props.theme.primaryColor, 0.1)};
+    background: ${props => props.theme.secondaryColor}
   `}
   &.active .index {
     background-color: ${props => props.theme.primaryColor};

@@ -28,7 +28,6 @@
   "author": "Edgesyntax",
   "license": "MIT",
   "dependencies": {
-    "polished": "^3.4.2",
     "prop-types": "^15.7.2"
   },
   "babel": {

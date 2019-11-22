@@ -23,7 +23,7 @@ const Style = styled.span`
 const Main = (props) => {
   return (
     <Style>
-      <Table data={data} {...props} theme={{primaryColor: "blue", secondaryColor: "grey", borderColor: "grey"}}/>
+      <Table data={data} {...props} theme={{primaryColor: "blue", secondaryColor: "grey"}}/>
     </Style>
   )
 }

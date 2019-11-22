@@ -9,9 +9,11 @@ import Thead from "./thead.component.jsx";
 import Tfoot from "./tfoot.component.jsx";
 import Util from "../helpers/util.js";
 import * as Styles from "./table.stylesheet.js";
-const Theme = {primaryColor: "#c0392b", secondaryColor: "#fafafa", borderColor: "#f0f0f0"}
+
+const Theme = {primaryColor: "#c0392b", secondaryColor: "#fafafa", borderColor: "#f0f0f0"};
+
 const Table = (props) => {
-  const { data, manual, noDataText, loading, loadingText, activeRow, dynamicFooter, height, hideHeader, showIndex, selectable, count, theme = Theme } = props;
+  const { data, manual, noDataText, loading, loadingText, activeRow, dynamicFooter, height, hideHeader, showIndex, selectable, count, theme} = props;
   const [state, setState] = useState({
     sort: props.defaultSort,
     sortable: props.sortable || true,
@@ -134,8 +136,8 @@ const Table = (props) => {
     })
   }
   return(
-    <ThemeProvider theme={theme}>
-      <Styles.Container className="react-table-component">
+    <ThemeProvider theme={{...Theme, ...theme}}>
+      <Styles.Container className="react-table">
         <Styles.Table className="tc-table" style={{height}}>
           {!hideHeader ?
             <Thead
